@@ -1,4 +1,3 @@
-const { decode } = require("punycode");
 const { JWT_SECRET } = require("./config");
 const jwt = require("jsonwebtoken");
 
@@ -13,9 +12,8 @@ const authMiddleware = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
-        if(decode.userId){
-            req.userId = decoded.userId;
-        }
+
+        req.userId = decoded.userId;
 
         next();
     } catch (err) {
@@ -25,4 +23,4 @@ const authMiddleware = (req, res, next) => {
 
 module.exports = {
     authMiddleware
-}            
+}

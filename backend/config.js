@@ -1,2 +1,4 @@
-const JWT_secret = "arunsecret";
-module.exports=JWT_secret;
+//backend/config.js
+module.exports = {
+    JWT_SECRET: "your-jwt-secret"
+  }
